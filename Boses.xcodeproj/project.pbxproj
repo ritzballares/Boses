@@ -14,8 +14,8 @@
 		61B3D98525EF2747004804E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61B3D98425EF2747004804E9 /* Assets.xcassets */; };
 		61B3D98825EF2747004804E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61B3D98625EF2747004804E9 /* LaunchScreen.storyboard */; };
 		61B3D99125EF2B63004804E9 /* ASLDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 61B3D99025EF2B63004804E9 /* ASLDetector.mlmodel */; };
-		61B3D99525EF34CD004804E9 /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B3D99425EF34CD004804E9 /* LearnViewController.swift */; };
-		61FBB1E525F10D79002DBA0C /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FBB1E425F10D79002DBA0C /* Letter.swift */; };
+		61FBB1ED25F113B7002DBA0C /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FBB1EC25F113B7002DBA0C /* Letter.swift */; };
+		61FBB1F225F11728002DBA0C /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FBB1F125F11728002DBA0C /* LearnViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +28,8 @@
 		61B3D98725EF2747004804E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61B3D98925EF2747004804E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61B3D99025EF2B63004804E9 /* ASLDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ASLDetector.mlmodel; sourceTree = "<group>"; };
-		61B3D99425EF34CD004804E9 /* LearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
-		61FBB1E425F10D79002DBA0C /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
+		61FBB1EC25F113B7002DBA0C /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
+		61FBB1F125F11728002DBA0C /* LearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,26 +62,34 @@
 		61B3D97A25EF2747004804E9 /* Boses */ = {
 			isa = PBXGroup;
 			children = (
+				61FBB1EF25F11464002DBA0C /* Model */,
+				61FBB1F425F11762002DBA0C /* Controller */,
 				61B3D97B25EF2747004804E9 /* AppDelegate.swift */,
 				61B3D97D25EF2747004804E9 /* SceneDelegate.swift */,
-				61B3D97F25EF2747004804E9 /* HomeViewController.swift */,
 				61B3D98125EF2747004804E9 /* Main.storyboard */,
 				61B3D98425EF2747004804E9 /* Assets.xcassets */,
 				61B3D98625EF2747004804E9 /* LaunchScreen.storyboard */,
 				61B3D99025EF2B63004804E9 /* ASLDetector.mlmodel */,
 				61B3D98925EF2747004804E9 /* Info.plist */,
-				61B3D99425EF34CD004804E9 /* LearnViewController.swift */,
-				61FBB1E725F10D7F002DBA0C /* Model */,
 			);
 			path = Boses;
 			sourceTree = "<group>";
 		};
-		61FBB1E725F10D7F002DBA0C /* Model */ = {
+		61FBB1EF25F11464002DBA0C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				61FBB1E425F10D79002DBA0C /* Letter.swift */,
+				61FBB1EC25F113B7002DBA0C /* Letter.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		61FBB1F425F11762002DBA0C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				61FBB1F125F11728002DBA0C /* LearnViewController.swift */,
+				61B3D97F25EF2747004804E9 /* HomeViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,12 +162,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61B3D99525EF34CD004804E9 /* LearnViewController.swift in Sources */,
 				61B3D98025EF2747004804E9 /* HomeViewController.swift in Sources */,
 				61B3D99125EF2B63004804E9 /* ASLDetector.mlmodel in Sources */,
-				61FBB1E525F10D79002DBA0C /* Letter.swift in Sources */,
+				61FBB1ED25F113B7002DBA0C /* Letter.swift in Sources */,
 				61B3D97C25EF2747004804E9 /* AppDelegate.swift in Sources */,
 				61B3D97E25EF2747004804E9 /* SceneDelegate.swift in Sources */,
+				61FBB1F225F11728002DBA0C /* LearnViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
