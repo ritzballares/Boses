@@ -15,6 +15,7 @@
 		61B3D98825EF2747004804E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61B3D98625EF2747004804E9 /* LaunchScreen.storyboard */; };
 		61B3D99125EF2B63004804E9 /* ASLDetector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 61B3D99025EF2B63004804E9 /* ASLDetector.mlmodel */; };
 		61B3D99525EF34CD004804E9 /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B3D99425EF34CD004804E9 /* LearnViewController.swift */; };
+		61FBB1E525F10D79002DBA0C /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FBB1E425F10D79002DBA0C /* Letter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		61B3D98925EF2747004804E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61B3D99025EF2B63004804E9 /* ASLDetector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ASLDetector.mlmodel; sourceTree = "<group>"; };
 		61B3D99425EF34CD004804E9 /* LearnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
+		61FBB1E425F10D79002DBA0C /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +71,17 @@
 				61B3D99025EF2B63004804E9 /* ASLDetector.mlmodel */,
 				61B3D98925EF2747004804E9 /* Info.plist */,
 				61B3D99425EF34CD004804E9 /* LearnViewController.swift */,
+				61FBB1E725F10D7F002DBA0C /* Model */,
 			);
 			path = Boses;
+			sourceTree = "<group>";
+		};
+		61FBB1E725F10D7F002DBA0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				61FBB1E425F10D79002DBA0C /* Letter.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +157,7 @@
 				61B3D99525EF34CD004804E9 /* LearnViewController.swift in Sources */,
 				61B3D98025EF2747004804E9 /* HomeViewController.swift in Sources */,
 				61B3D99125EF2B63004804E9 /* ASLDetector.mlmodel in Sources */,
+				61FBB1E525F10D79002DBA0C /* Letter.swift in Sources */,
 				61B3D97C25EF2747004804E9 /* AppDelegate.swift in Sources */,
 				61B3D97E25EF2747004804E9 /* SceneDelegate.swift in Sources */,
 			);
