@@ -48,7 +48,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="apu-Re-2nQ"/>
                     <connections>
-                        <segue destination="S5V-6d-fWL" kind="show" identifier="goToLearn" id="WfM-PE-RWK"/>
+                        <segue destination="cXF-Id-zfH" kind="show" identifier="goToLearn" id="Dgk-JU-aOm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -56,20 +56,50 @@
             <point key="canvasLocation" x="1074.4000000000001" y="114.53201970443351"/>
         </scene>
         <!--Learn View Controller-->
-        <scene sceneID="Pvh-RG-fan">
+        <scene sceneID="2Et-40-DsK">
             <objects>
-                <viewController id="S5V-6d-fWL" customClass="LearnViewController" customModule="Boses" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xIF-F3-KTC">
+                <tableViewController id="cXF-Id-zfH" customClass="LearnViewController" customModule="Boses" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="PVf-8k-dAQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ZYh-cU-7oY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Ehl-Xt-IFr"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eSc-Ed-ano" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LetterTableViewCell" rowHeight="60" id="nWC-8Q-76n" customClass="LetterTableViewCell" customModule="Boses" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nWC-8Q-76n" id="d1x-Vo-rBZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULY-fc-PHK">
+                                            <rect key="frame" x="0.0" y="0.0" width="122" height="60"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="ULY-fc-PHK" secondAttribute="bottom" id="QnY-dv-2ek"/>
+                                        <constraint firstItem="ULY-fc-PHK" firstAttribute="top" secondItem="d1x-Vo-rBZ" secondAttribute="top" id="apB-v6-k9R"/>
+                                        <constraint firstItem="ULY-fc-PHK" firstAttribute="leading" secondItem="d1x-Vo-rBZ" secondAttribute="leading" id="mHl-rj-qCh"/>
+                                        <constraint firstAttribute="trailing" secondItem="ULY-fc-PHK" secondAttribute="trailing" constant="253" id="nIZ-RL-cRg"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="letterLabel" destination="ULY-fc-PHK" id="YVm-rz-h7J"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cXF-Id-zfH" id="ccr-9a-acf"/>
+                            <outlet property="delegate" destination="cXF-Id-zfH" id="6ch-L0-ahM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="1TT-lm-oUa"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z4b-8E-Vvz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1866.4000000000001" y="114.53201970443351"/>
+            <point key="canvasLocation" x="1829.5999999999999" y="114.53201970443351"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="taY-Vr-EFP">
