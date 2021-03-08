@@ -10,6 +10,7 @@ import UIKit
 class LearnViewController: UITableViewController {
     
     var letters: [Letter] = []
+    var letter: Letter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +43,27 @@ class LearnViewController: UITableViewController {
             fatalError("The dequeued reusable cell is not an instance of \(cellIdentifier)")
         }
         
-        let letter = letters[indexPath.row]
+        letter = letters[indexPath.row]
         
-        cell.letterLabel.text = letter.getLetter()
+        if letter != nil {
+            cell.letterLabel.text = letter!.getLetter()
+        }
         
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        letter = letters[indexPath.row]
+        performSegue(withIdentifier: "goToLetter", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToLetter" {
+            if let letterViewController = segue.destination as? LetterViewController {
+                if letter != nil {
+                    letterViewController.letter = self.letter
+                }
+            }
+        }
+    }
 }

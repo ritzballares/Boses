@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61A8465825F65B0E005EA1A1 /* LetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A8465725F65B0E005EA1A1 /* LetterViewController.swift */; };
 		61B3D97C25EF2747004804E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B3D97B25EF2747004804E9 /* AppDelegate.swift */; };
 		61B3D97E25EF2747004804E9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B3D97D25EF2747004804E9 /* SceneDelegate.swift */; };
 		61B3D98025EF2747004804E9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B3D97F25EF2747004804E9 /* HomeViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		61A8465725F65B0E005EA1A1 /* LetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterViewController.swift; sourceTree = "<group>"; };
 		61B3D97825EF2747004804E9 /* Boses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61B3D97B25EF2747004804E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61B3D97D25EF2747004804E9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				61FBB1F125F11728002DBA0C /* LearnViewController.swift */,
 				61B3D97F25EF2747004804E9 /* HomeViewController.swift */,
+				61A8465725F65B0E005EA1A1 /* LetterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				61B3D99125EF2B63004804E9 /* ASLDetector.mlmodel in Sources */,
 				61FBB1ED25F113B7002DBA0C /* Letter.swift in Sources */,
 				61B3D97C25EF2747004804E9 /* AppDelegate.swift in Sources */,
+				61A8465825F65B0E005EA1A1 /* LetterViewController.swift in Sources */,
 				61B3D97E25EF2747004804E9 /* SceneDelegate.swift in Sources */,
 				61FBB1F225F11728002DBA0C /* LearnViewController.swift in Sources */,
 				61C56D1025F3D89A00EB9E03 /* LetterTableViewCell.swift in Sources */,

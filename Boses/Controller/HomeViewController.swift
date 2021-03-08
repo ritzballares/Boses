@@ -11,7 +11,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true  
     }
 
     @IBAction func learnButtonPressed(_ sender: UIButton) {

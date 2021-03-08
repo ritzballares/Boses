@@ -72,17 +72,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULY-fc-PHK">
-                                            <rect key="frame" x="0.0" y="0.0" width="122" height="60"/>
+                                            <rect key="frame" x="16.000000000000004" y="19" width="41.333333333333343" height="20.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="ULY-fc-PHK" secondAttribute="bottom" id="QnY-dv-2ek"/>
-                                        <constraint firstItem="ULY-fc-PHK" firstAttribute="top" secondItem="d1x-Vo-rBZ" secondAttribute="top" id="apB-v6-k9R"/>
-                                        <constraint firstItem="ULY-fc-PHK" firstAttribute="leading" secondItem="d1x-Vo-rBZ" secondAttribute="leading" id="mHl-rj-qCh"/>
-                                        <constraint firstAttribute="trailing" secondItem="ULY-fc-PHK" secondAttribute="trailing" constant="253" id="nIZ-RL-cRg"/>
+                                        <constraint firstItem="ULY-fc-PHK" firstAttribute="top" secondItem="d1x-Vo-rBZ" secondAttribute="topMargin" constant="8" id="SCz-KH-Pdy"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ULY-fc-PHK" secondAttribute="trailing" constant="301.67000000000002" id="c05-Yt-7M7"/>
+                                        <constraint firstItem="ULY-fc-PHK" firstAttribute="leading" secondItem="d1x-Vo-rBZ" secondAttribute="leadingMargin" id="eIa-Pz-Jjq"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ULY-fc-PHK" secondAttribute="bottom" constant="9.6699999999999999" id="hBQ-Pr-D7R"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -96,6 +96,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="1TT-lm-oUa"/>
+                    <connections>
+                        <segue destination="elF-3g-hOo" kind="show" identifier="goToLetter" id="F3Y-IC-w91"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4b-8E-Vvz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,6 +121,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h0X-rE-Mqa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="114.53201970443351"/>
+        </scene>
+        <!--Letter View Controller-->
+        <scene sceneID="FCu-nh-kI4">
+            <objects>
+                <viewController id="elF-3g-hOo" customClass="LetterViewController" customModule="Boses" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ckt-zc-EUe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="123" translatesAutoresizingMaskIntoConstraints="NO" id="4n7-js-RIo">
+                                <rect key="frame" x="67" y="228" width="240" height="357"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QG3-gz-hMM">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="204"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q50-Vd-iRh">
+                                        <rect key="frame" x="0.0" y="327" width="240" height="30"/>
+                                        <state key="normal" title="Practice"/>
+                                        <connections>
+                                            <action selector="practiceButtonPressed:" destination="elF-3g-hOo" eventType="touchUpInside" id="drI-4n-2Ig"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="q50-Vd-iRh" secondAttribute="trailing" id="11t-As-Z2F"/>
+                                    <constraint firstItem="QG3-gz-hMM" firstAttribute="leading" secondItem="4n7-js-RIo" secondAttribute="leading" id="9Bk-A3-LAG"/>
+                                    <constraint firstItem="q50-Vd-iRh" firstAttribute="top" secondItem="QG3-gz-hMM" secondAttribute="bottom" constant="123" id="QSn-TF-Sf4"/>
+                                    <constraint firstItem="q50-Vd-iRh" firstAttribute="top" secondItem="QG3-gz-hMM" secondAttribute="bottom" constant="123" id="UYu-AQ-JLF"/>
+                                    <constraint firstItem="q50-Vd-iRh" firstAttribute="leading" secondItem="4n7-js-RIo" secondAttribute="leading" id="d9L-xy-Rs1"/>
+                                    <constraint firstItem="QG3-gz-hMM" firstAttribute="top" secondItem="4n7-js-RIo" secondAttribute="top" id="hkb-0c-KNk"/>
+                                    <constraint firstAttribute="trailing" secondItem="QG3-gz-hMM" secondAttribute="trailing" id="oro-C6-FQc"/>
+                                    <constraint firstAttribute="bottom" secondItem="q50-Vd-iRh" secondAttribute="bottom" id="oxh-Zc-eS0"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qT0-Vd-6DU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4n7-js-RIo" firstAttribute="leading" secondItem="qT0-Vd-6DU" secondAttribute="leading" constant="67" id="FVF-2z-sKJ"/>
+                            <constraint firstItem="qT0-Vd-6DU" firstAttribute="bottom" secondItem="4n7-js-RIo" secondAttribute="bottom" constant="193" id="bIe-BG-cAK"/>
+                            <constraint firstItem="4n7-js-RIo" firstAttribute="top" secondItem="qT0-Vd-6DU" secondAttribute="top" constant="140" id="gRc-3j-vfz"/>
+                            <constraint firstItem="qT0-Vd-6DU" firstAttribute="trailing" secondItem="4n7-js-RIo" secondAttribute="trailing" constant="68" id="izb-kT-yls"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hYx-kY-zzd"/>
+                    <connections>
+                        <outlet property="letterImgView" destination="QG3-gz-hMM" id="KQo-Ux-tOI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QwW-2d-aya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2524" y="114.53201970443351"/>
         </scene>
     </scenes>
     <resources>
