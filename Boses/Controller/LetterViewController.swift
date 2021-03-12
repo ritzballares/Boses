@@ -18,6 +18,16 @@ class LetterViewController: UIViewController {
     }
 
     @IBAction func practiceButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToPractice", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToPractice" {
+            if let practiceViewController = segue.destination as? PracticeViewController {
+                if letter != nil {
+                    practiceViewController.letter = self.letter
+                }
+            }
+        }
+    }
 }
