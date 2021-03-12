@@ -168,11 +168,28 @@
                     <navigationItem key="navigationItem" id="hYx-kY-zzd"/>
                     <connections>
                         <outlet property="letterImgView" destination="QG3-gz-hMM" id="KQo-Ux-tOI"/>
+                        <segue destination="dYy-G9-BtG" kind="show" identifier="goToPractice" id="Faw-9v-7hQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QwW-2d-aya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2524" y="114.53201970443351"/>
+        </scene>
+        <!--Practice View Controller-->
+        <scene sceneID="1Dw-qw-C5v">
+            <objects>
+                <viewController id="dYy-G9-BtG" customClass="PracticeViewController" customModule="Boses" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pm1-Ee-Tho">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="zgl-x1-6zV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AHk-YP-kQH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cGp-Ka-TBL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3254" y="115"/>
         </scene>
     </scenes>
     <resources>
