@@ -16,6 +16,7 @@ class LearnViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
         self.title = "ASL Alphabet"
+//        navigationItem.hidesBackButton = true
         addLettersToArray()
     }
     
