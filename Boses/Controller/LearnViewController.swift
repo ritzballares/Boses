@@ -14,15 +14,14 @@ class LearnViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = false
-        self.title = "ASL Alphabet"
-//        navigationItem.hidesBackButton = true
+        self.title = "Boses"
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1641500294, green: 0.4532442689, blue: 0.7059374452, alpha: 1)
         addLettersToArray()
     }
     
     func addLettersToArray() {
-        let min = 0
-        let max = 25
+        let min: Int = 0
+        let max: Int = 25
         
         for i in min...max {
             letters += [Letter(letterNum: i)]

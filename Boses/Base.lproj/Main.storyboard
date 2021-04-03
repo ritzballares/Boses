@@ -134,6 +134,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mtG-XS-aIW">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
+                            <color key="textColor" red="0.97647058819999999" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
