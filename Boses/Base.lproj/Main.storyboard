@@ -65,13 +65,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QG3-gz-hMM">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QG3-gz-hMM">
                                 <rect key="frame" x="37" y="206" width="300" height="400"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qT0-Vd-6DU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="QG3-gz-hMM" firstAttribute="leading" secondItem="qT0-Vd-6DU" secondAttribute="leading" constant="37" id="2Yh-XR-05Z"/>
+                            <constraint firstItem="QG3-gz-hMM" firstAttribute="top" secondItem="qT0-Vd-6DU" secondAttribute="top" constant="118" id="WQH-qx-Qel"/>
+                            <constraint firstItem="qT0-Vd-6DU" firstAttribute="trailing" secondItem="QG3-gz-hMM" secondAttribute="trailing" constant="38" id="bqD-9P-w0P"/>
+                            <constraint firstItem="qT0-Vd-6DU" firstAttribute="bottom" secondItem="QG3-gz-hMM" secondAttribute="bottom" constant="172" id="jLB-o7-rUS"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hYx-kY-zzd"/>
                     <connections>
