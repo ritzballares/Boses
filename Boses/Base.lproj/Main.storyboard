@@ -65,40 +65,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="123" translatesAutoresizingMaskIntoConstraints="NO" id="4n7-js-RIo">
-                                <rect key="frame" x="67" y="228" width="240" height="357"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QG3-gz-hMM">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="204"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q50-Vd-iRh">
-                                        <rect key="frame" x="0.0" y="327" width="240" height="30"/>
-                                        <state key="normal" title="Practice"/>
-                                        <connections>
-                                            <action selector="practiceButtonPressed:" destination="elF-3g-hOo" eventType="touchUpInside" id="drI-4n-2Ig"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="q50-Vd-iRh" secondAttribute="trailing" id="11t-As-Z2F"/>
-                                    <constraint firstItem="QG3-gz-hMM" firstAttribute="leading" secondItem="4n7-js-RIo" secondAttribute="leading" id="9Bk-A3-LAG"/>
-                                    <constraint firstItem="q50-Vd-iRh" firstAttribute="top" secondItem="QG3-gz-hMM" secondAttribute="bottom" constant="123" id="QSn-TF-Sf4"/>
-                                    <constraint firstItem="q50-Vd-iRh" firstAttribute="top" secondItem="QG3-gz-hMM" secondAttribute="bottom" constant="123" id="UYu-AQ-JLF"/>
-                                    <constraint firstItem="q50-Vd-iRh" firstAttribute="leading" secondItem="4n7-js-RIo" secondAttribute="leading" id="d9L-xy-Rs1"/>
-                                    <constraint firstItem="QG3-gz-hMM" firstAttribute="top" secondItem="4n7-js-RIo" secondAttribute="top" id="hkb-0c-KNk"/>
-                                    <constraint firstAttribute="trailing" secondItem="QG3-gz-hMM" secondAttribute="trailing" id="oro-C6-FQc"/>
-                                    <constraint firstAttribute="bottom" secondItem="q50-Vd-iRh" secondAttribute="bottom" id="oxh-Zc-eS0"/>
-                                </constraints>
-                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QG3-gz-hMM">
+                                <rect key="frame" x="37" y="206" width="300" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qT0-Vd-6DU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="4n7-js-RIo" firstAttribute="leading" secondItem="qT0-Vd-6DU" secondAttribute="leading" constant="67" id="FVF-2z-sKJ"/>
-                            <constraint firstItem="qT0-Vd-6DU" firstAttribute="bottom" secondItem="4n7-js-RIo" secondAttribute="bottom" constant="193" id="bIe-BG-cAK"/>
-                            <constraint firstItem="4n7-js-RIo" firstAttribute="top" secondItem="qT0-Vd-6DU" secondAttribute="top" constant="140" id="gRc-3j-vfz"/>
-                            <constraint firstItem="qT0-Vd-6DU" firstAttribute="trailing" secondItem="4n7-js-RIo" secondAttribute="trailing" constant="68" id="izb-kT-yls"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hYx-kY-zzd"/>
                     <connections>

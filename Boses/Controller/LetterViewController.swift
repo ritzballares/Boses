@@ -14,12 +14,15 @@ class LetterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = letter?.getLetter()
         letterImgView.image = letter?.getLetterImage()
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.9781288505, green: 0.9683626294, blue: 0.9683561921, alpha: 1)
     }
 
-    @IBAction func practiceButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToPractice", sender: self)
-    }
+
+//    @IBAction func practiceButtonPressed(_ sender: UIButton) {
+//        performSegue(withIdentifier: "goToPractice", sender: self)
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToPractice" {
