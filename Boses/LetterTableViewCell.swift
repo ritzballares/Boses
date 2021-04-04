@@ -10,6 +10,7 @@ import UIKit
 class LetterTableViewCell: UITableViewCell {
 
     @IBOutlet weak var letterLabel: UILabel!
+    @IBOutlet weak var letterImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

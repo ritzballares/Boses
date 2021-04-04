@@ -47,9 +47,19 @@ class LearnViewController: UITableViewController {
         
         if letter != nil {
             cell.letterLabel.text = letter!.getLetter()
+            
+            let image = resizeImage(img: (letter?.getLetterImage())!)
+            cell.letterImageView.image = image
         }
         
         return cell
+    }
+    
+    func resizeImage(img: UIImage) -> UIImage {
+        let resizingFactor = 10 / img.size.height
+        let resizedImage = UIImage(cgImage: img.cgImage!, scale: img.scale / resizingFactor, orientation: .up)
+        
+        return resizedImage
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
