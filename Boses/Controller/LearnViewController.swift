@@ -15,7 +15,6 @@ class LearnViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Boses"
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1641500294, green: 0.4532442689, blue: 0.7059374452, alpha: 1)
         addLettersToArray()
     }
     

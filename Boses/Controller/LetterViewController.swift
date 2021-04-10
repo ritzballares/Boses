@@ -16,13 +16,11 @@ class LetterViewController: UIViewController {
         super.viewDidLoad()
         self.title = letter?.getLetter()
         letterImgView.image = letter?.getLetterImage()
-        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.9781288505, green: 0.9683626294, blue: 0.9683561921, alpha: 1)
         
         let practiceButton = UIBarButtonItem(title: "Practice", style: .plain, target: self, action: #selector(self.practiceButtonPressed))
-        
         navigationItem.rightBarButtonItem = practiceButton
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.1641500294, green: 0.4532442689, blue: 0.7059374452, alpha: 1)
     }
-
 
     @objc func practiceButtonPressed() {
         performSegue(withIdentifier: "goToPractice", sender: self)
