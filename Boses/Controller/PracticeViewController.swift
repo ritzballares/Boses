@@ -6,112 +6,87 @@
 //
 
 import UIKit
-import AVKit
+import CoreML
 import Vision
 
-class PracticeViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
+class PracticeViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     var letter: Letter?
-    @IBOutlet weak var previewView: UIView!
+    
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var rightOrWrongLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpAV()
+        setUpCamera()
     }
     
-    func setUpAV() {
-        // configure the camera to use for capture
-        let session = AVCaptureSession()
-        
-        // set device and session resolution
-        let videoDevice = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front).devices.first
-        
-        guard let deviceInput = try? AVCaptureDeviceInput(device: videoDevice!) else {
-            print("Could not create video device input")
-            return
-        }
-        
-        session.beginConfiguration()
-        session.sessionPreset = .vga640x480
-        
-        // add video input to session
-        guard session.canAddInput(deviceInput) else {
-            print("Could not add video device input to the session")
-            session.commitConfiguration()
-            return
-        }
-        
-        session.addInput(deviceInput)
-        
-        // add video output to session
-        let videoDataOutput = AVCaptureVideoDataOutput()
-        let videoDataOutputQueue = DispatchQueue(label: "VideoDataOutput", qos: .userInitiated, attributes: [], autoreleaseFrequency: .workItem)
-        
-        if session.canAddOutput(videoDataOutput) {
-            session.addOutput(videoDataOutput)
-            videoDataOutput.alwaysDiscardsLateVideoFrames = true
-            videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)]
-            videoDataOutput.setSampleBufferDelegate(self, queue: videoDataOutputQueue)
-        } else {
-            print("Could not add video data output to the session")
-            session.commitConfiguration()
-            return
-        }
-        
-        // process every frame, but don't hold on to more than one Vision request at a time
-        let captureConnection = videoDataOutput.connection(with: .video)
-        captureConnection?.isEnabled = true
-        var bufferSize: CGSize = .zero
-        
+    lazy var classificationRequest: VNCoreMLRequest = {
         do {
-            try videoDevice!.lockForConfiguration()
-            let dimensions = CMVideoFormatDescriptionGetDimensions((videoDevice?.activeFormat.formatDescription)!)
-            bufferSize.width = CGFloat(dimensions.width)
-            bufferSize.height = CGFloat(dimensions.height)
-            videoDevice!.unlockForConfiguration()
-        } catch {
-            print(error)
-        }
-        
-        session.commitConfiguration()
-        session.startRunning()
-        
-        // set up preview layer
-        var previewLayer: AVCaptureVideoPreviewLayer! = nil
-        var rootLayer: CALayer! = nil
-        
-        previewLayer = AVCaptureVideoPreviewLayer(session: session)
-        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        rootLayer = previewView.layer
-        previewLayer.frame = rootLayer.bounds
-        rootLayer.addSublayer(previewLayer)
-    }
-    
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        guard let model = try? ASLDetector(configuration: MLModelConfiguration()),
-              let visionModel = try? VNCoreMLModel(for: model.model) else {
-            print("Could not load model")
-            return
-        }
-        
-        let objectRecognition = VNCoreMLRequest(model: visionModel) { (req, err) in
-            DispatchQueue.main.async(execute: {
-                if let results = req.results {
-                    for observation in results where observation is VNRecognizedObjectObservation {
-                        guard let objectObservation = observation as? VNRecognizedObjectObservation else { continue }
-                        let topLabelObservation = objectObservation.labels[0]
-                        print(topLabelObservation)
-                    }
-                }
-            })
-        }
-        
-        guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+            let model = try VNCoreMLModel(for: ASLDetector().model)
 
-        do {
-            try VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([objectRecognition])
+            let request = VNCoreMLRequest(model: model) { (req, err) in
+                self.processClassifications(for: req, error: err)
+            }
+            
+            request.imageCropAndScaleOption = .centerCrop
+            return request
         } catch {
-            print("Something happened with the image request handler")
+            fatalError("Failed to load model: \(error)")
+        }
+    }()
+    
+    func setUpCamera() {
+        let imgPicker = UIImagePickerController()
+        imgPicker.sourceType = .camera
+        imgPicker.cameraDevice = .front
+        imgPicker.allowsEditing = false
+        imgPicker.delegate = self
+        present(imgPicker, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        
+        guard let image = info[.originalImage] as? UIImage else {
+            print("No image found")
             return
+            
+        }
+        
+        imageView.image = image
+        updateClassifications(for: image)
+    }
+    
+    func updateClassifications(for image: UIImage) {
+        let orientation = CGImagePropertyOrientation(rawValue: UInt32(image.imageOrientation.rawValue))
+        guard let ciImage = CIImage(image: image) else { return }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let handler = VNImageRequestHandler(ciImage: ciImage, orientation: orientation!)
+            
+            do {
+                try handler.perform([self.classificationRequest])
+            } catch {
+                print("Failed to perform classification \(error)")
+            }
+        }
+    }
+    
+    func processClassifications(for request: VNRequest, error: Error?) {
+        DispatchQueue.main.async {
+            if let results = request.results {
+                for observation in results where observation is VNRecognizedObjectObservation {
+                    guard let objectObservation = observation as? VNRecognizedObjectObservation else { continue }
+                    let topLabelObservation = objectObservation.labels[0]
+                    
+                    if topLabelObservation.identifier == self.letter?.getLetter() {
+                        self.rightOrWrongLabel.text = "✅"
+                    } else {
+                        self.rightOrWrongLabel.text = "❌"
+                    }
+                
+                }
+            }
         }
     }
 }

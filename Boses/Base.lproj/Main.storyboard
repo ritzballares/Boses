@@ -114,18 +114,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kaz-U7-uHQ">
-                                <rect key="frame" x="67" y="342" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="112" translatesAutoresizingMaskIntoConstraints="NO" id="we8-eK-fJP">
+                                <rect key="frame" x="37" y="236" width="300" height="462"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QUz-1j-Wqi">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DB9-Fb-bQW">
+                                        <rect key="frame" x="125" y="412" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zgl-x1-6zV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="we8-eK-fJP" firstAttribute="top" secondItem="zgl-x1-6zV" secondAttribute="top" constant="148" id="D6j-iv-yj5"/>
+                            <constraint firstItem="zgl-x1-6zV" firstAttribute="bottom" secondItem="we8-eK-fJP" secondAttribute="bottom" constant="80" id="Kb6-rV-yEC"/>
+                            <constraint firstItem="we8-eK-fJP" firstAttribute="leading" secondItem="zgl-x1-6zV" secondAttribute="leading" constant="37" id="ZDC-TI-Kcx"/>
+                            <constraint firstItem="zgl-x1-6zV" firstAttribute="trailing" secondItem="we8-eK-fJP" secondAttribute="trailing" constant="38" id="xu2-Jb-4td"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AHk-YP-kQH"/>
                     <connections>
-                        <outlet property="previewView" destination="kaz-U7-uHQ" id="h05-qk-5dH"/>
+                        <outlet property="imageView" destination="QUz-1j-Wqi" id="SVw-Ky-MiD"/>
+                        <outlet property="rightOrWrongLabel" destination="DB9-Fb-bQW" id="msa-2B-9iY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cGp-Ka-TBL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
