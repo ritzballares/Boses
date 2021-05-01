@@ -15,14 +15,9 @@ class PracticeViewController: UIViewController, UINavigationControllerDelegate, 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var rightOrWrongLabel: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setUpCamera()
-    }
-    
     lazy var classificationRequest: VNCoreMLRequest = {
         do {
-            let model = try VNCoreMLModel(for: ASLDetector().model)
+            let model = try VNCoreMLModel(for: ASLImageClassifier().model)
 
             let request = VNCoreMLRequest(model: model) { (req, err) in
                 self.processClassifications(for: req, error: err)
@@ -35,13 +30,28 @@ class PracticeViewController: UIViewController, UINavigationControllerDelegate, 
         }
     }()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let practiceButton = UIBarButtonItem(title: "Retry", style: .plain, target: self, action: #selector(self.resetCamera))
+        navigationItem.rightBarButtonItem = practiceButton
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.1641500294, green: 0.4532442689, blue: 0.7059374452, alpha: 1)
+        
+        setUpCamera()
+    }
+    
     func setUpCamera() {
         let imgPicker = UIImagePickerController()
         imgPicker.sourceType = .camera
-        imgPicker.cameraDevice = .front
+        imgPicker.cameraDevice = .rear
         imgPicker.allowsEditing = false
         imgPicker.delegate = self
         present(imgPicker, animated: true)
+    }
+    
+    @objc func resetCamera() {
+        self.rightOrWrongLabel.text = ""
+        setUpCamera()
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -73,18 +83,24 @@ class PracticeViewController: UIViewController, UINavigationControllerDelegate, 
     }
     
     func processClassifications(for request: VNRequest, error: Error?) {
+        var attemptIsRight: Bool = false
+        
         DispatchQueue.main.async {
             if let results = request.results {
-                for observation in results where observation is VNRecognizedObjectObservation {
-                    guard let objectObservation = observation as? VNRecognizedObjectObservation else { continue }
-                    let topLabelObservation = objectObservation.labels[0]
-                    
-                    if topLabelObservation.identifier == self.letter?.getLetter() {
-                        self.rightOrWrongLabel.text = "✅"
-                    } else {
-                        self.rightOrWrongLabel.text = "❌"
-                    }
+                let classifications = results as! [VNClassificationObservation]
                 
+                if classifications.isEmpty {
+                    self.rightOrWrongLabel.text = "Nothing recognized"
+                } else {
+                    if classifications.first?.identifier == self.letter?.getLetter() {
+                        attemptIsRight = true
+                    }
+                }
+                
+                if attemptIsRight {
+                    self.rightOrWrongLabel.text = "✅"
+                } else {
+                    self.rightOrWrongLabel.text = "❌"
                 }
             }
         }
