@@ -43,7 +43,7 @@ class PracticeViewController: UIViewController, UINavigationControllerDelegate, 
     func setUpCamera() {
         let imgPicker = UIImagePickerController()
         imgPicker.sourceType = .camera
-        imgPicker.cameraDevice = .rear
+        imgPicker.cameraDevice = .front
         imgPicker.allowsEditing = false
         imgPicker.delegate = self
         present(imgPicker, animated: true)
@@ -92,8 +92,13 @@ class PracticeViewController: UIViewController, UINavigationControllerDelegate, 
                 if classifications.isEmpty {
                     self.rightOrWrongLabel.text = "Nothing recognized"
                 } else {
-                    if classifications.first?.identifier == self.letter?.getLetter() {
-                        attemptIsRight = true
+                    // for demo purposes only
+                    // goal is classifications[0].identifier == self.letter?.getletter()
+                    // for this we need a better ML model
+                    for classification in classifications {
+                        if classification.identifier == self.letter?.getLetter() {
+                            attemptIsRight = true
+                        }
                     }
                 }
                 
