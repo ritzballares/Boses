@@ -2,7 +2,7 @@
 Boses is an iOS app that aims to help people learn ASL fingerspelling. This project was presented at Howard Community College's 2021 Scholars Symposium.
 
 ## Demo
-<img src="./boses_demo.gif" alt="demo" height="400" width="200"/>
+<img src="./demo.gif" alt="demo" height="400" width="200"/>
 
 ## Technologies used
 - Swift
