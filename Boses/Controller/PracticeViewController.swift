@@ -92,13 +92,8 @@ class PracticeViewController: UIViewController, UINavigationControllerDelegate, 
                 if classifications.isEmpty {
                     self.rightOrWrongLabel.text = "Nothing recognized"
                 } else {
-                    // for demo purposes only
-                    // goal is classifications[0].identifier == self.letter?.getletter()
-                    // for this we need a better ML model
-                    for classification in classifications {
-                        if classification.identifier == self.letter?.getLetter() {
-                            attemptIsRight = true
-                        }
+                    if classifications[0].identifier == self.letter?.getLetter() {
+                        attemptIsRight = true
                     }
                 }
                 
